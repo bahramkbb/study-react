@@ -1,8 +1,6 @@
 import React from 'react';
 import { Route, Link } from "react-router-dom";
 import Product from './Product';
-import logo from './logo.svg';
-import './App.css';
 
 const Products = ({ match }) => (
   <div>

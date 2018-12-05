@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-dom";
 
 import './index.css';
-import App from './App';
 import Home from './Home';
 import About from './About';
 import Products from './Products';
+import NotFound from './NotFound';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
@@ -15,20 +15,26 @@ ReactDOM.render(
       <nav>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <NavLink to="/about">About</NavLink>
           </li>
           <li>
-            <Link to="/products">Products</Link>
+            <NavLink to="/products">Products</NavLink>
+          </li>
+          <li>
+            <NavLink to="/shit">Shit</NavLink>
           </li>
         </ul>
       </nav>
 
-      <Route path="/" exact component={Home} />
-      <Route path="/about" component={About} />
-      <Route path="/products" component={Products} />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/products" component={Products} />
+        <Route component={NotFound} />
+      </Switch>
     </div>
   </Router>
 , document.getElementById('root'));
