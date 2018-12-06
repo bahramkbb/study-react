@@ -1,42 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, NavLink, Switch } from "react-router-dom";
-
-import './index.css';
-import Home from './Home';
-import About from './About';
-import Products from './Products';
-import NotFound from './NotFound';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <Router>
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about">About</NavLink>
-          </li>
-          <li>
-            <NavLink to="/products">Products</NavLink>
-          </li>
-          <li>
-            <NavLink to="/shit">Shit</NavLink>
-          </li>
-        </ul>
-      </nav>
-
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/products" component={Products} />
-        <Route component={NotFound} />
-      </Switch>
-    </div>
-  </Router>
+  // <Router>
+  //   <div>
+  //     <nav>
+  //       <ul>
+  //         <li>
+  //           <NavLink to="/">Home</NavLink>
+  //         </li>
+  //         <li>
+  //           <NavLink to="/about">About</NavLink>
+  //         </li>
+  //         <li>
+  //           <NavLink to="/products">Products</NavLink>
+  //         </li>
+  //         <li>
+  //           <NavLink to="/shit">Shit</NavLink>
+  //         </li>
+  //       </ul>
+  //     </nav>
+  //
+  //     <Switch>
+  //       <Route path="/" exact component={App} />
+  //       <Route component={NotFound} />
+  //     </Switch>
+  //   </div>
+  // </Router>
+<App />
 , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
