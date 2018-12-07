@@ -6,7 +6,7 @@ class Grid extends Component {
     return this.props.notes.map(item =>
       <Note
        key={item.id}
-       deleteNote={this.props.deleteNote.bind(this)}
+       removeNote={this.props.removeNote.bind(this)}
        item={item} />
     )
   }

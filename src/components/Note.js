@@ -10,7 +10,7 @@ const Note = (props) => {
         </div>
         <div className="card-action">
             <button className="btn-floating waves-effect waves-light red"
-              onClick={() => props.deleteNote(props.item.id)}>
+              onClick={() => props.removeNote(props.item)}>
               <i className="material-icons">delete</i>
             </button>
         </div>

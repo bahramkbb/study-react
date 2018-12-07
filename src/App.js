@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 //Import Components
 import Header from './components/Header';
 import Grid from './components/Grid';
 import Form from './components/Form';
+
+//Import store functions
+import { getInitialNotes, addNewNote, removeNote } from './store/actions';
 
 // const styles = {
 //   textAlign: 'center',
@@ -12,24 +16,37 @@ import Form from './components/Form';
 // }
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      notes: [],
-      currentTitle: '',
-      currentDetails: '',
-    }
-  }
-
   render() {
     return (
       <div className="App">
-        <Header name="Bahram"/>
-        <Form />
-        <Grid />
+        <Header name={this.props.name}/>
+        <Form addNewNote={this.props.addNewNote} />
+        <Grid notes={this.props.notes} removeNote={this.props.removeNote}/>
+
       </div>
     );
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+      getInitialNotes: () => {
+        dispatch(getInitialNotes())
+      },
+      addNewNote: (note) => {
+        dispatch(addNewNote(note))
+      },
+      removeNote: (note) => {
+        dispatch(removeNote(note))
+      },
+    };
+}
+
+const mapStateToProps = (state, ownProps) => {
+  return {
+    notes: state.notes,
+    name: state.name,
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
